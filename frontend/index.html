@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReceitaFácil — Cole o link, cozinhe agora</title>
+  <meta name="description" content="Transforme links de vídeos de receita em listas de ingredientes e pedidos de entrega.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <span class="brand-icon">🍳</span>
+      Receita<span class="brand-accent">Fácil</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link active">
+        <span>⌂</span> <span class="label">Início</span>
+      </a></li>
+      <li><a href="dashboard.html" class="nav-link">
+        <span>☑</span> <span class="label">Dashboard</span>
+      </a></li>
+      <li><a href="shopper.html" class="nav-link">
+        <span>🛵</span> <span class="label">Shopper</span>
+      </a></li>
+      <li><a href="history.html" class="nav-link">
+        <span>★</span> <span class="label">Histórico</span>
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="hero-icon">🍳</div>
+      <h1 class="hero-title">Cole o link.<br>Cozinhe agora.</h1>
+      <p class="hero-subtitle">
+        Transforme qualquer link de vídeo de receita em uma lista de ingredientes,
+        despensa inteligente e pedido de entrega — sem fricção.
+      </p>
+
+      <div class="hero-form">
+        <form id="extract-form">
+          <div class="hero-input-wrapper">
+            <input
+              id="url-input"
+              class="hero-input"
+              type="text"
+              placeholder="Ex: https://www.youtube.com/watch?v=..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="extract-btn" class="hero-btn" type="submit">
+              <span>✦</span> Extrair
+            </button>
+          </div>
+        </form>
+
+        <div class="hero-hints">
+          <span class="hero-hint">▶ YouTube</span>
+          <span class="hero-hint">▶ youtu.be</span>
+          <span class="hero-hint">🎂 bolo</span>
+          <span class="hero-hint">🍗 frango</span>
+          <span class="hero-hint">🍕 pizza</span>
+          <span class="hero-hint">🍝 massa</span>
+          <span class="hero-hint">🥩 carne</span>
+          <span class="hero-hint">🐟 peixe</span>
+        </div>
+
+        <!-- Resultado / Skeleton -->
+        <div id="extract-result" class="extract-result" style="display:none;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/ingredient-icons.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

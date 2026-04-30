@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopper — ReceitaFácil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <span class="brand-icon">🍳</span>
+      Receita<span class="brand-accent">Fácil</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">
+        <span>⌂</span> <span class="label">Início</span>
+      </a></li>
+      <li><a href="dashboard.html" class="nav-link">
+        <span>☑</span> <span class="label">Dashboard</span>
+      </a></li>
+      <li><a href="shopper.html" class="nav-link">
+        <span>🛵</span> <span class="label">Shopper</span>
+      </a></li>
+      <li><a href="history.html" class="nav-link">
+        <span>★</span> <span class="label">Histórico</span>
+      </a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h1>Shopper</h1>
+          <p class="subtitle">Gerencie pedidos e entregue os ingredientes</p>
+        </div>
+        <button id="refresh-btn" class="btn btn-secondary">
+          ↻ Atualizar
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid de colunas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+      <!-- Coluna: Pendentes -->
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div class="section-title" style="margin-bottom:0;flex:1;">Aguardando</div>
+          <span id="pending-count" class="badge badge-yellow">0</span>
+        </div>
+        <div id="pending-list" class="orders-list">
+          <div class="loading-overlay">
+            <div class="spinner"></div>
+            <span>Carregando...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna: Aceitos / Em rota -->
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div class="section-title" style="margin-bottom:0;flex:1;">Em rota</div>
+          <span id="accepted-count" class="badge badge-blue">0</span>
+        </div>
+        <div id="accepted-list" class="orders-list"></div>
+      </div>
+
+    </div>
+
+    <!-- Nota de auto-refresh -->
+    <div style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.78rem;">
+      Atualização automática a cada 30 segundos
+    </div>
+
+  </main>
+
+  <style>
+    @media (max-width: 640px) {
+      main .page-wrapper > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/ingredient-icons.js"></script>
+  <script src="assets/js/shopper.js"></script>
+</body>
+</html>

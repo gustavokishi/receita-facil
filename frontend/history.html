@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histórico — ReceitaFácil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <span class="brand-icon">🍳</span>
+      Receita<span class="brand-accent">Fácil</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">
+        <span>⌂</span> <span class="label">Início</span>
+      </a></li>
+      <li><a href="dashboard.html" class="nav-link">
+        <span>☑</span> <span class="label">Dashboard</span>
+      </a></li>
+      <li><a href="shopper.html" class="nav-link">
+        <span>🛵</span> <span class="label">Shopper</span>
+      </a></li>
+      <li><a href="history.html" class="nav-link">
+        <span>★</span> <span class="label">Histórico</span>
+      </a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h1>Histórico</h1>
+          <p class="subtitle">Pedidos entregues e avaliações</p>
+        </div>
+        <button id="refresh-btn" class="btn btn-secondary">↻ Atualizar</button>
+      </div>
+    </div>
+
+    <!-- Estatísticas -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem;">
+      <div class="card" style="text-align:center;padding:1.25rem;">
+        <div style="font-size:2rem;font-weight:900;color:var(--accent);" id="total-orders">—</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem;text-transform:uppercase;letter-spacing:0.08em;">Pedidos</div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.25rem;">
+        <div style="font-size:2rem;font-weight:900;color:#f59e0b;" id="avg-rating">—</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem;text-transform:uppercase;letter-spacing:0.08em;">Média ★</div>
+      </div>
+    </div>
+
+    <!-- Lista -->
+    <div id="history-list" class="history-list"></div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state" style="display:none;">
+      <div class="empty-icon">📋</div>
+      <h3 style="color:var(--text-secondary);margin-bottom:0.5rem;">Nenhum pedido entregue ainda</h3>
+      <p>Quando um pedido for marcado como entregue pelo Shopper, ele aparecerá aqui.</p>
+      <div style="margin-top:1.5rem;">
+        <a href="shopper.html" class="btn btn-primary">Ir para o Shopper →</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/ingredient-icons.js"></script>
+  <script src="assets/js/history.js"></script>
+</body>
+</html>

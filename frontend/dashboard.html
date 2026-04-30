@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — ReceitaFácil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <span class="brand-icon">🍳</span>
+      Receita<span class="brand-accent">Fácil</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">
+        <span>⌂</span> <span class="label">Início</span>
+      </a></li>
+      <li><a href="dashboard.html" class="nav-link">
+        <span>☑</span> <span class="label">Dashboard</span>
+      </a></li>
+      <li><a href="shopper.html" class="nav-link">
+        <span>🛵</span> <span class="label">Shopper</span>
+      </a></li>
+      <li><a href="history.html" class="nav-link">
+        <span>★</span> <span class="label">Histórico</span>
+      </a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h1 id="recipe-title">Selecione uma receita</h1>
+          <p id="recipe-subtitle" class="subtitle"></p>
+        </div>
+        <a href="index.html" class="btn btn-secondary btn-sm">+ Nova receita</a>
+      </div>
+
+      <!-- Seletor de receita -->
+      <div style="margin-top:1.25rem;">
+        <div class="input-group">
+          <label class="input-label">Receita ativa</label>
+          <select id="recipe-select" class="input">
+            <option value="">Carregando...</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="dashboard-container">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:1.5rem;align-items:start;">
+
+        <!-- Coluna principal -->
+        <div>
+
+          <!-- Ingredientes -->
+          <section class="section">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+              <div class="section-title" style="margin-bottom:0;flex:1;">Ingredientes</div>
+              <div style="display:flex;gap:0.5rem;">
+                <button id="check-all-btn" class="btn btn-secondary btn-sm">✓ Tenho tudo</button>
+                <button id="uncheck-all-btn" class="btn btn-secondary btn-sm">✕ Limpar</button>
+              </div>
+            </div>
+            <div id="ingredients-list" class="ingredients-grid">
+              <div class="empty-state">
+                <div class="empty-icon">🥘</div>
+                <p>Selecione uma receita acima para ver os ingredientes</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Utensílios -->
+          <section class="section">
+            <div class="section-title">Utensílios</div>
+            <div id="utensils-list" class="ingredients-grid"></div>
+          </section>
+
+        </div>
+
+        <!-- Sidebar: lista de compras -->
+        <div style="position:sticky;top:80px;">
+          <div class="card card-accent">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Lista de Compras</div>
+                <div class="card-subtitle">
+                  Itens que você não tem
+                </div>
+              </div>
+              <span id="shopping-count" class="badge badge-orange">0 itens</span>
+            </div>
+
+            <!-- Lista de compras -->
+            <section id="shopping-section" style="display:none;">
+              <div id="shopping-list" class="shopping-list" style="margin-bottom:1rem;"></div>
+              <div id="shopping-total-row" class="shopping-total" style="display:none;">
+                <span class="shopping-total-label">Total estimado</span>
+                <strong id="shopping-total-value" class="shopping-total-value">R$ 0,00</strong>
+              </div>
+            </section>
+
+            <!-- Sem itens para comprar -->
+            <div id="shopping-empty" style="text-align:center;padding:1rem 0;color:var(--text-muted);font-size:0.88rem;">
+              Marque os ingredientes que você não tem para gerar a lista
+            </div>
+
+            <button id="create-order-btn" class="btn btn-primary btn-block" disabled>
+              🛒 Criar pedido
+            </button>
+
+            <div style="margin-top:0.75rem;text-align:center;">
+              <a href="shopper.html" style="font-size:0.8rem;color:var(--text-muted);">
+                Ver pedidos ativos →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <style>
+    /* Layout responsivo do dashboard */
+    @media (max-width: 768px) {
+      #dashboard-container > div {
+        grid-template-columns: 1fr !important;
+      }
+      #dashboard-container > div > div:last-child {
+        position: static !important;
+      }
+    }
+  </style>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/ingredient-icons.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
